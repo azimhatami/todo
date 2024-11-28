@@ -10,4 +10,4 @@ app.include_router(todo_router)
 
 @app.get('/')
 def root():
-    return HTMLResponse('<center><h1>Welcome to fastAPI.</h1></center>')
+    return HTMLResponse('<center><h1>Welcome to FastAPI</h1></center>')

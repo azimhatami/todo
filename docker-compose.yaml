@@ -1,17 +1,25 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
-    command: sh -c 'uvicorn app.main:app --reload --port=8000 --host=0.0.0.0'
+  backend:
+    build: ./backend
     ports:
-      - 8000:8000
+      - "8000:8000"
     depends_on:
       - mongo
     volumes:
-      - .:/code
-    links:
-      - mongo
+      - ./backend:/code
+    networks:
+      - web-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
     networks:
       - web-network
 
@@ -19,8 +27,13 @@ services:
     image: mongo
     ports:
       - 27017:27017
+    volumes:
+      - mongo_data:/data/db
     networks:
       - web-network
+
+volumes:
+  mongo_data:
 
 networks:
   web-network:
