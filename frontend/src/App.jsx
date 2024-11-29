@@ -1,13 +1,36 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import TodoList from './components/TodoList';
 import './App.css'
+
 
 function App() {
 
+	const [todos, setTodos] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const fetchTodos = async () => {
+			setIsLoading(true)
+			try {
+				const response = await axios.get('http://localhost:8000/todos/')
+				setTodos(response.data)
+				console.log(response)
+			} catch(error) {
+				setError(error.message)
+			} finally {
+				setIsLoading(false)
+			}
+		};
+
+		fetchTodos()
+	}, [])
+
+
   return (
     <>
-	  <h2>ToDo List</h2>
-	  <p>
-		Test
-	  </p>
+		<TodoList todos={todos} isLoading={isLoading} error={error} />
     </>
   )
 }
