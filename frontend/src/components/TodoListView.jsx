@@ -1,20 +1,17 @@
 import { MdRadioButtonUnchecked } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
+import { useState, useEffect } from 'react'
+import TodoAdd from './TodoAdd'
+import TodoDelete from './TodoDelete'
+import axios from 'axios'
 
 
-function TodoList({ isLoading, error, todos }) {
+function TodoListView({ isLoading, error, todos, setTodos }) {
+
 	return(
 		<>
 			<h2 className='font-bold text-[5rem] font-mono mb-[1rem]'>Todo List</h2>
 			<div className='w-[60%] m-auto'>
-				<div className='w-full'>
-					<input 
-						type='text' 
-						placeholder='Write anything and hit enter to add' 
-						className='w-full h-[2.6rem] px-[0.5rem] py-[4px] border-solid border-[1px] border-slate-500 rounded-lg outline-none' 
-					/>
-					<button className='absolute bg-purple-800 left-[78.1rem] top-[10.6rem] w-[4.6rem] h-[2.4rem] rounded-md outline-none font-semibold'>Add</button>
-				</div>
+				<TodoAdd todos={ todos } setTodos={ setTodos } />
 				<div>
 					{ 
 					  isLoading ? (
@@ -31,7 +28,7 @@ function TodoList({ isLoading, error, todos }) {
 									>
 										<MdRadioButtonUnchecked className='text-[1.3rem]'/>
 										<div>{todo.title}</div>
-										<MdDelete className='text-[1.5rem] text-rose-500'/>
+										<TodoDelete todo_id={ todo._id } todos={ todos } setTodos={ setTodos } />
 									</li>
 								)
 							})}
@@ -45,4 +42,4 @@ function TodoList({ isLoading, error, todos }) {
 }
 
 
-export default TodoList
+export default TodoListView

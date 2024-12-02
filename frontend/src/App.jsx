@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import TodoList from './components/TodoList';
+import TodoList from './components/TodoListView';
 import './App.css'
 
 
@@ -16,7 +16,6 @@ function App() {
 			try {
 				const response = await axios.get('http://localhost:8000/todos/')
 				setTodos(response.data)
-				console.log(response)
 			} catch(error) {
 				setError(error.message)
 			} finally {
@@ -30,7 +29,7 @@ function App() {
 
   return (
     <>
-		<TodoList todos={todos} isLoading={isLoading} error={error} />
+		<TodoList todos={todos} setTodos={setTodos} isLoading={isLoading} error={error} />
     </>
   )
 }
