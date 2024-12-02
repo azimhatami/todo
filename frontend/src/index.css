@@ -16,3 +16,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+body {
+  background-image: url('./assets/img1.jpg');
+  width: 100%;
+  height: 100vh;
+}
