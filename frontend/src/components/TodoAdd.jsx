@@ -9,11 +9,13 @@ function TodoAdd({ todos, setTodos }) {
 
 	const handleAddTodo = async (e) => {
 		e.preventDefault();
+
 		try {
-			const response = await axios.post('http://localhost:8000/todos/', { 'title': title, 'description': title })
+			const response = await axios.post('http://localhost:8000/todos/', { 'title': title, 'description': description })
 			console.log('Todo added successfully:', response.data)
 			setTodos([...todos, response.data])
 			setTitle('')
+			setDescription('')
 		} catch(error) {
 			console.error('Error adding todo: ', error)
 		}
@@ -22,17 +24,24 @@ function TodoAdd({ todos, setTodos }) {
 
 	return(
 		<>
-			<div className='w-full'>
+			<div className='w-full flex flex-col gap-2'>
 				<input 
 					type='text' 
-					placeholder='Write anything and hit enter to add' 
-					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] border-solid border-[1px] border-slate-500 rounded-lg outline-none' 
+					placeholder='Write Title' 
+					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
 					value={title}
 					onChange={e => setTitle(e.target.value)}
 				/>
+				<input 
+					type='text' 
+					placeholder='Write Description' 
+					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
+					value={description}
+					onChange={e => setDescription(e.target.value)}
+				/>
 				<button 
 					type='submit'
-					className='absolute bg-purple-800 left-[78.1rem] top-[10.6rem] w-[4.6rem] h-[2.4rem] rounded-md outline-none font-semibold'
+					className='w-full bg-blue-500 opacity-85 hover:opacity-100 w-[4.6rem] h-[2rem] rounded-md outline-none font-semibold mt-[1rem]'
 					onClick={(e) => handleAddTodo(e)}
 				>
 					Add
