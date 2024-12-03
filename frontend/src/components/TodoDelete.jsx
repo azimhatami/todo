@@ -23,7 +23,7 @@ function TodoDelete({ todo_id, todos, setTodos }) {
 	return(
 		<>
 			<MdDelete 
-				className='text-[1.5rem] text-rose-500'
+				className='text-[1.6rem] text-rose-800'
 				onClick={() => handleDelete(todo_id)}
 			/>
 		</>
