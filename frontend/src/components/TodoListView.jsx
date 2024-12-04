@@ -1,5 +1,6 @@
 import { MdRadioButtonUnchecked } from "react-icons/md";
 import { IoMdCheckmarkCircle } from "react-icons/io";
+import { PiNotepadBold } from "react-icons/pi";
 import { useState, useEffect } from 'react'
 import TodoAdd from './TodoAdd'
 import TodoDelete from './TodoDelete'
@@ -17,7 +18,10 @@ function TodoListView({ isLoading, error, todos, setTodos }) {
 
 	return(
 		<>
-			<h2 className='font-bold text-[5rem] font-mono mb-[1rem]'>Todo List</h2>
+			<div className='flex flex-row items-center justify-between text-slate-400'>
+				<h2 className='font-bold text-[5rem] font-mono mb-[1rem] text-start'>Todo List</h2>
+				<PiNotepadBold className='text-[3.5rem]'/>
+			</div>
 			<div className='w-full grid grid-cols-3'>
 				<TodoAdd todos={ todos } setTodos={ setTodos } />
 				<div className='col-span-2 w-[42rem] justify-self-end'>

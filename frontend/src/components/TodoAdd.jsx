@@ -7,8 +7,11 @@ function TodoAdd({ todos, setTodos }) {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 
+
 	const handleAddTodo = async (e) => {
 		e.preventDefault();
+		
+		if (!title || !description) return null;
 
 		try {
 			const response = await axios.post('http://localhost:8000/todos/', { 'title': title, 'description': description })
