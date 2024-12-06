@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": ".",
-      "use": "@vercel/node",
-      "command": "docker-compose up --build --detach"
+      "use": "@vercel/docker"
     }
   ]
 }
