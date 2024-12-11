@@ -10,12 +10,10 @@ todo_router = APIRouter()
 todo_repository = ToDoRepository(collection)
 
 @todo_router.post('/todos/')
-async def create_todo(
-    todo: ToDo,
-):
+async def create_todo(todo: ToDo):
     return todo_repository.create_todo(todo)
 
-@todo_router.get('/todos/',)
+@todo_router.get('/todos/')
 async def get_todos():
     return todo_repository.get_all_todos()
 

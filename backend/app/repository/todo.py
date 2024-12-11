@@ -19,7 +19,8 @@ class ToDoRepository:
         return {
             '_id': str(inserted_todo['_id']),
             'title': todo.title,
-            'description': todo.description
+            'description': todo.description,
+            'completed': todo.completed,
         }
 
     def get_all_todos(self) -> list[ToDo]:
@@ -31,7 +32,8 @@ class ToDoRepository:
             todos.append({
                 '_id': str(todo['_id']),
                 'title': todo['title'],
-                'description': todo['description']
+                'description': todo['description'],
+                'completed': todo['completed'],
             })
         return todos
 
