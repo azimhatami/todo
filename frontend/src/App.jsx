@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-		<TodoList todos={todos} setTodos={setTodos} isLoading={isLoading} error={error} />
+		  <TodoList todos={todos} setTodos={setTodos} isLoading={isLoading} error={error} />
     </>
   )
 }

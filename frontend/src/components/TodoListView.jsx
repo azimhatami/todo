@@ -4,17 +4,11 @@ import { PiNotepadBold } from "react-icons/pi";
 import { useState, useEffect } from 'react'
 import TodoAdd from './TodoAdd'
 import TodoDelete from './TodoDelete'
+import TodoItem from './TodoItem'
 import axios from 'axios'
 
 
 function TodoListView({ isLoading, error, todos, setTodos }) {
-
-	const [completed, setCompleted] = useState(false);
-
-	const handleCompleted = (e, todoId) => {
-		e.preventDefault();
-		setTodos(prevTodos => prevTodos.map((todo) => todo._id === todoId ? { ...todo, completed: !todo.completed } : todo))
-	};
 
 	return(
 		<>
@@ -34,34 +28,7 @@ function TodoListView({ isLoading, error, todos, setTodos }) {
 					  	  <ul className='flex flex-col gap-3'>
 					  		{todos.map((todo) => {
 								return(
-									<li 
-										key={todo._id} 
-										className={
-											`${
-												todo.completed ? (
-													'bg-zinc-800 line-through') : (
-														'')
-											} bg-zinc-900 h-[3rem] rounded-lg flex flex-row items-center justify-between px-4 h-[4.5rem]`}
-									>
-										<div className='flex flex-col text-start gap-1'>
-											<div className='text-lg font-bold'>{todo.title}</div>
-											<div className='text-sm text-slate-400 font-semibold'>{todo.description}</div>
-										</div>
-										<div className='flex flex-row items-center gap-4'>
-											<button onClick={(e) => handleCompleted(e, todo._id)} className='text-sky-400 outline-none'>
-												{
-													todo.completed ?
-													<IoMdCheckmarkCircle
-														className='text-[1.5rem]'
-													/> :
-													<MdRadioButtonUnchecked 
-														className='text-[1.5rem]'
-													/>
-												}
-											</button>
-											<TodoDelete todo_id={ todo._id } todos={ todos } setTodos={ setTodos } />
-										</div>
-									</li>
+                  <TodoItem todo={todo} key={todo._id} todos={todos} setTodos={setTodos} />
 								)
 							})}
 					  	  </ul>

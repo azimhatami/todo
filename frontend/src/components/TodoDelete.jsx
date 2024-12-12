@@ -8,11 +8,9 @@ function TodoDelete({ todo_id, todos, setTodos }) {
 
 		try {
 			const response = await axios.delete(`http://localhost:8000/todos/delete/${todo_id}`);
-			console.log(response)
 
 			// Filter out the deleted todo from the todos array
 			const updatedTodos = todos.filter(todo => todo._id !== todo_id);
-			console.log(updatedTodos)
 			setTodos(updatedTodos)
 
 		} catch(error) {
