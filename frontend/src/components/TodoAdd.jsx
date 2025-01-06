@@ -34,6 +34,7 @@ function TodoAdd({ todos, setTodos }) {
 					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
 					value={title}
 					onChange={e => setTitle(e.target.value)}
+          dir='auto'
 				/>
 				<input 
 					type='text' 
@@ -41,6 +42,7 @@ function TodoAdd({ todos, setTodos }) {
 					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
 					value={description}
 					onChange={e => setDescription(e.target.value)}
+          dir='auto'
 				/>
 				<button 
 					type='submit'
