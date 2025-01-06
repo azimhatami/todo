@@ -1,11 +1,11 @@
-# To-Do list fastapi
+# To-Do List
 
-## A simple ToDo list server, created with fastAPI and  Mongodb in Docker
+## Full stack ToDo list application
 
 ### Fist clone the project:
 
 ```
-git cloe https://github.com/azimhatami/todo-fastapi.git
+git cloe https://github.com/azimhatami/todo.git
 ```
 
 ### Then in the project directory run this command:
