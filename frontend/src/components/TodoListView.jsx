@@ -11,14 +11,16 @@ import axios from 'axios'
 function TodoListView({ isLoading, error, todos, setTodos }) {
 
 	return(
-		<>
-			<div className='flex flex-row items-center justify-between text-slate-400'>
-				<h2 className='font-bold text-[5rem] font-mono mb-[1rem] text-start'>Todo List</h2>
-				<PiNotepadBold className='text-[3.5rem]'/>
+		<div className='md:w-[100%] lg:w-[90%] m-auto w-full h-screen'>
+			<div className='flex flex-row items-center justify-between text-slate-400 md:mb-[1rem] mb-[2rem]'>
+				<h2 className='font-bold md:text-[4rem] text-[2rem] font-mono text-start'>Todo List</h2>
+				<PiNotepadBold className='md:text-[3rem] text-[2rem]'/>
 			</div>
-			<div className='w-full grid grid-cols-3'>
-				<TodoAdd todos={ todos } setTodos={ setTodos } />
-				<div className='col-span-2 w-[42rem] justify-self-end'>
+			<div className='w-full grid md:grid-cols-3 grid-rows-2'>
+        <div className='row-span-1'>
+				  <TodoAdd todos={ todos } setTodos={ setTodos } />
+        </div>
+				<div className='md:col-span-2 row-span-1 md:w-[30rem] lg:w-[38rem] w-full justify-self-end'>
 					{ 
 					  isLoading ? (
 					    <p>Loading...</p>
@@ -36,7 +38,7 @@ function TodoListView({ isLoading, error, todos, setTodos }) {
 					}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
 

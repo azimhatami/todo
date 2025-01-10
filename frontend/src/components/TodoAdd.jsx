@@ -52,7 +52,6 @@ function TodoAdd({ todos, setTodos }) {
 					Add
 				</button>
 			</div>
-			
 		</>
 	);
 }

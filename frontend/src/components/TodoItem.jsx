@@ -42,8 +42,8 @@ const TodoItem = ({ todo, todos, setTodos }) => {
         } bg-zinc-900 h-[3rem] rounded-lg flex flex-row items-center justify-between px-4 h-[4.5rem]`}
       >
         <div className="flex flex-col text-start gap-1">
-          <div className="text-lg font-bold">{todo.title}</div>
-          <div className="text-sm text-slate-400 font-semibold">{todo.description}</div>
+          <div dir='auto' className="text-lg font-bold">{todo.title}</div>
+          <div dir='auto' className="text-sm text-slate-400 font-semibold">{todo.description}</div>
         </div>
         <div className="flex flex-row items-center gap-4">
           <button onClick={() => handleCompleted(todo._id)} className="text-sky-400 outline-none">
