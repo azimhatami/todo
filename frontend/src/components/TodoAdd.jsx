@@ -27,10 +27,11 @@ function TodoAdd({ todos, setTodos }) {
 
 	return(
 		<>
-			<div className='w-full flex flex-col gap-2'>
+			<div className='w-full flex flex-col gap-2' data-test='addtodo-form'>
 				<input 
 					type='text' 
 					placeholder='Write Title' 
+          data-test='addtodo-title'
 					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
 					value={title}
 					onChange={e => setTitle(e.target.value)}
@@ -39,6 +40,7 @@ function TodoAdd({ todos, setTodos }) {
 				<input 
 					type='text' 
 					placeholder='Write Description' 
+          data-test='addtodo-desc'
 					className='w-full h-[2.6rem] px-[0.5rem] py-[4px] rounded-lg outline-none bg-neutral-900' 
 					value={description}
 					onChange={e => setDescription(e.target.value)}
@@ -47,6 +49,7 @@ function TodoAdd({ todos, setTodos }) {
 				<button 
 					type='submit'
 					className='w-full bg-blue-500 opacity-85 hover:opacity-100 w-[4.6rem] h-[2rem] rounded-md outline-none font-semibold mt-[1rem]'
+          data-test='addtodo-btn'
 					onClick={(e) => handleAddTodo(e)}
 				>
 					Add

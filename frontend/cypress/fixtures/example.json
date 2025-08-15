@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "689f0842922296269e715744",
+    "title": "Test First ToDo",
+    "description": "This is a description for first todo",
+    "completed": true
+  },
+  {
+    "_id": "689f532c72273969eada5762",
+    "title": "Cypress tutorial",
+    "description": "description for cypress",
+    "completed": true
+  },
+  {
+    "_id": "689f533572273969eada5763",
+    "title": "Cypress tutorial",
+    "description": "description for cypress",
+    "completed": true
+  },
+  {
+    "_id": "689f573f72273969eada5764",
+    "title": "Cypress tutorial",
+    "description": "description for cypress",
+    "completed": false
+  }
+]

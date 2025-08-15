@@ -22,6 +22,7 @@ function TodoDelete({ todo_id, todos, setTodos }) {
 		<>
 			<MdDelete 
 				className='text-[1.6rem] text-rose-800'
+        data-test='delete-btn'
 				onClick={() => handleDelete(todo_id)}
 			/>
 		</>

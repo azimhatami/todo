@@ -13,7 +13,7 @@ function TodoListView({ isLoading, error, todos, setTodos }) {
 	return(
 		<div className='md:w-[100%] lg:w-[90%] m-auto w-full h-screen'>
 			<div className='flex flex-row items-center justify-between text-slate-400 md:mb-[1rem] mb-[2rem]'>
-				<h2 className='font-bold md:text-[4rem] text-[2rem] font-mono text-start'>Todo List</h2>
+				<h2 data-test='test-header' className='font-bold md:text-[4rem] text-[2rem] font-mono text-start'>Todo List</h2>
 				<PiNotepadBold className='md:text-[3rem] text-[2rem]'/>
 			</div>
 			<div className='w-full grid md:grid-cols-3 grid-rows-2'>
@@ -27,7 +27,7 @@ function TodoListView({ isLoading, error, todos, setTodos }) {
 					) : error ? (
 					    <p>Error: {error}</p>
 					) : (
-					  	  <ul className='flex flex-col gap-3'>
+					  	  <ul className='flex flex-col gap-3' data-test='todos-list'>
 					  		{todos.map((todo) => {
 								return(
                   <TodoItem todo={todo} key={todo._id} todos={todos} setTodos={setTodos} />

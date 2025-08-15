@@ -46,7 +46,7 @@ const TodoItem = ({ todo, todos, setTodos }) => {
           <div dir='auto' className="text-sm text-slate-400 font-semibold">{todo.description}</div>
         </div>
         <div className="flex flex-row items-center gap-4">
-          <button onClick={() => handleCompleted(todo._id)} className="text-sky-400 outline-none">
+          <button data-test='complete-btn' onClick={() => handleCompleted(todo._id)} className="text-sky-400 outline-none">
             {completed ? (
               <IoMdCheckmarkCircle className="text-[1.5rem]" />
             ) : (
